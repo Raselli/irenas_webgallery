@@ -1,11 +1,10 @@
 # Irena's WebGallery
-#### Video Demo:  <https://youtu.be/nFt_DnLmOZg>
-#### Description:
+## Description:
 Irena's WebGallery is a web app allowing registered users to upload their art and to present themselves using a profile.
 
-•	Allows creation of profiles, uploading of pictures with description and more.
-•	Pictures are saved inside a folder-system and are referred to a profile inside a database.
-•	Submitted as [final project for CS50x](https://youtu.be/nFt_DnLmOZg) in 2021.
+* Allows creation of profiles, uploading of pictures with description and more.
+* Pictures are saved inside a folder-system and are referred to a profile inside a database.
+* Submitted as [final project for CS50x](https://youtu.be/nFt_DnLmOZg) in 2021.
 
 
 ## What was used for creating this Web App
