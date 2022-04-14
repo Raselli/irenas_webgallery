@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Artist: {{ artist.display_name }}{% endblock %}
+
+{% block main %}
+    <div>
+        {% block artist %}{% endblock %}
+    </div>
+    <div class="frame_opaque">
+        <div>
+            {% for fltr in fltrs %}
+                {% if current_filter == fltr %}
+                    <a class="fltr_active" href="/artists/{{ artist.display_name }}/{{ fltr }}">{{ fltr }}</a>
+                {% else %}
+                    <a class="fltr" href="/artists/{{ artist.display_name }}/{{ fltr }}">{{ fltr }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <br>
+        {% if entries %}
+            {% for entry in entries %}
+                <a class="tiles" href="/gallery/{{ current_filter }}/{{ entry.title }}">         
+                    <img id="{{ entry.id }}" class="tile" src="/static/uploads/thumbnails/{{ entry.filename }}" alt="Painting-Title: {{ entry.title }}">
+                </a>
+            {% endfor %}
+        {% else %}
+            <br>
+            <p class="center"><b>No Entries</b></p>
+        {% endif %}
+    </div>
+{% endblock %}

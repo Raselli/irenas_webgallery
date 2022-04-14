@@ -1,0 +1,46 @@
+{% extends "artist_frame.html" %}
+
+{% block artist %}
+    <br>
+    <table>
+        <tr>
+            <td>
+                {% if artist.filename %}
+                    <img class="tile_list" src="/static/uploads/avatars/{{ artist.filename }}" alt="Artist-avatar: {{ artist.display_name }}"/>
+                {% else %}
+                    <img class="tile_list" src="/static/default.png" alt="Artist-avatar: {{ artist.display_name }}"/>
+                {% endif %}
+            </td>
+            <td>
+                <table class="artisttable">
+                    <tr>
+                        <td class="artistname"><h2>{{ artist.display_name }}</h2></td>
+                    </tr>
+                    <tr>                            
+                        <td class="artistinfo">
+                            {% if artist.email %}
+                                <a class="fa fa-envelope" href="mailto:{{ artist.email }}" target="_blank"></a>
+                            {% else %}
+                                <a class="fa fa-envelope" id="fa_inactive"></a>
+                            {% endif %}
+                            {% for socialmedia in socialmedias %}
+                                {% if artist[socialmedia] %}
+                                    <a href="{{ artist[socialmedia] }}" target="_blank" class="fa fa-{{ socialmedia }}"></a> 
+                                {% else %}
+                                    <a class="fa fa-{{ socialmedia }}" id="fa_inactive"></a> 
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    {% if artist.note %} 
+        <div class="description">
+            <p class="font0">About the Artist:</p>
+            <p>{{ artist.note }}</p>    
+        </div>
+    {% endif %}
+    <br>
+{% endblock %}

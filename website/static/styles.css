@@ -1,0 +1,448 @@
+/* irenas webgallery css-styles */
+body {
+    overflow-y: scroll;
+}
+
+header {
+    z-index: 1;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 55px;  
+    box-shadow: 0px 3px rgba(0, 0, 0, 0.5);
+    min-width: 1024px;
+}
+
+main {
+    font-family: Helvetica;
+    margin-top: 55px;
+    padding-bottom: 55px;   
+    background-color: rgb(255, 255, 255);
+    min-width: 1024px;
+}
+
+footer {
+    z-index: 1;    
+    background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    height: 20px;
+    text-align: center;
+    color: white;
+    border-top: 3px solid rgba(255, 255, 255, 0.5);
+    padding-top: 2px;
+    font-size: x-small;
+}
+
+
+/* regular tag modifications */
+a {
+    text-decoration: none!important;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: Verdana;
+    color: #a57909;
+    text-shadow: 3px 3px 3px #00000048;
+    text-align: center;
+    padding: 25px 0 2px 0;
+}
+
+h2 {
+    padding-bottom: 20px;
+    text-transform: capitalize;
+}
+
+h3 { 
+    padding-bottom: 20px;
+}
+
+h4 {
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #b68500;
+}
+
+hr {
+    margin: 70px;
+}
+
+label {
+    font-weight: bold;
+    padding-left: 2px;
+}
+
+li {
+    /* GoldFont-import, link: https://addisonlegere.com/blog/gold-text-with-css-image/ */
+    text-decoration: dotted;
+    color: #D5AD6D; /*if no support for background-clip*/
+    background: -webkit-linear-gradient(transparent, transparent),
+    -webkit-linear-gradient(top, rgba(213,173,109,1) 0%, rgba(213,173,109,1) 26%, rgba(226,186,120,1) 35%, rgba(163,126,67,1) 45%, rgba(145,112,59,1) 61%, rgba(213,173,109,1) 100%);
+    background: -o-linear-gradient(transparent, transparent);
+    -webkit-background-clip: text;
+    /* end_GoldFont-import, credits to Addison Legere https://addisonlegere.com/ */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+}
+
+textarea {
+    height: 500px;
+    resize: none;
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    font-size: 200%;
+}
+
+/* fonts */
+.font0 {
+    font-size: xx-large;
+    color: #b68500;
+}
+
+.font1 {
+    font-size: x-large;
+    font-weight: bold;
+    color: #b68500;
+}
+
+.font1:hover {
+    font-size: x-large;
+    font-weight: bold;
+    color: #7c5900;
+}
+
+/* frame classes */
+.frame_filter {
+    padding: 30px 0 10px 0;
+}
+
+.frame_flash {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-weight: bold;
+    font-size: 120%;     
+    text-align: center;
+}
+
+.frame_index {
+    display: flex;
+}
+
+.frame_index_col {
+    margin: 80px 0 50px 0;
+    height: 60vh;
+    flex: 1;
+    text-align: center;
+}
+
+.frame_gallery {
+    width: 620px;
+    height: 620px;
+}
+
+.frame_invis {
+    position: relative;
+    height: 50px;
+    margin: 0 70px 0 70px;
+}
+
+.frame_login {
+    border-radius: 5px;
+    min-width: 210px;
+    width: 320px;
+    margin: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 3px black;
+}
+
+.frame_opaque {
+    background-color: rgba(194, 194, 194, 0.199);
+    position: relative;
+    margin: 0 70px 20px 70px;
+    padding: 2%;
+    min-height: 50vh;
+}
+
+.frame_w20pct {
+    margin: 20px auto auto auto;
+    width: 340px;
+    padding: 20px; 
+    border: none;
+    color: #ffffff;
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.3);
+    background-color: rgb(27, 27, 27);
+    border-radius: 20px;
+    box-shadow: 6px 5px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+}
+
+.frame_w50pct {
+    margin: 20px auto auto auto;
+    width: 50%;
+    padding: 20px; 
+    border: none;
+    color: #ffffff;
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.3);
+    background-color: rgb(27, 27, 27);
+    border-radius: 20px;
+    box-shadow: 6px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* image classes */
+.img_large {
+    max-width: 100vh;
+    max-height: 100vh;    
+    border: 5px solid #99720870;
+}
+
+.img_mod {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.tile {
+    height: 300px;
+    width: 300px;
+    display: block;
+    background-color: black;
+}
+
+.tile:hover {
+    transition-duration: 0.2s;  
+    padding: 1%;
+}
+
+.tiles {
+    width: 300px; 
+    height: 300px; 
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.tile_list {
+    height: 150px;
+}
+
+
+/* composition classes */
+.center {
+    text-align: center;
+}
+
+.dropdown {
+    max-width: 30%;
+    margin-bottom: 30px;
+}
+
+.float_left {
+    padding-left: 4px;
+    padding-top: 4px;
+    float: left;
+}
+
+.float_right {
+    padding-right: 4px;
+    float: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.li_left {
+    float: left;
+    margin-left: 1%;
+}
+
+.li_right {
+    float: right;
+    margin-right: 1%;
+}
+
+.submit_right {
+    padding-top: 20px;
+    text-align: right;     
+}
+
+
+/* button classes */
+.bttn {    
+    margin: 10px 0px 0px 0px;
+}
+
+.button_logout {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.button_logout:hover {
+    text-shadow: 0px 0px 10px #D5AD6D;
+    text-decoration: none;
+} 
+
+.button_logout:visited {
+    text-decoration: none;
+}
+
+.close {
+    position: absolute;
+    margin-left: -40px;
+    width: 40px;
+    height: 40px;
+    color: black;
+}
+
+.close:focus {
+    outline: none;
+}
+
+.fltr {   
+    padding-top: 5px;
+    border-radius: 5px;
+    color: black;
+    background: rgb(255, 255, 255);
+    width: 90px;   
+    height: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.24);
+    transition-duration: 0.4s;  
+}
+
+.fltr:hover {
+    text-shadow: 0px 0px 10px #ffffff;
+    background: rgba(50,50,50,0.8);
+    color: #ffffff;   
+}
+
+.fltr_active {
+    padding-top: 5px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    width: 90px;   
+    height: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.8); 
+    transition-duration: 0.4s; 
+}
+
+.fltr_active:hover {
+    text-shadow: 0px 0px 10px #ffffff;
+    background: rgb(0, 0, 0);
+    color: #ffffff;    
+}
+
+
+/* table-modifications and table-classes */
+table {
+    border: none;
+    color: #ffffff;
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.3);
+    margin: 20px auto 20px auto;
+    max-width: 100%;
+    background-color: rgb(27, 27, 27);
+    border-radius: 20px;
+    box-shadow: 6px 5px rgba(0, 0, 0, 0.1);
+}
+
+td {
+    max-width: 80vw;
+    padding-left: 20px;
+    padding-right: 20px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th {
+    padding: 0 20px 20px 20px;
+    text-decoration: underline;
+}
+
+
+.artistinfo {
+    width: 600px;
+}
+
+.artistname {
+    padding-top: 15px;
+    height: 80px;
+    width: 800px;
+    border-radius: 20px 20px 0 0;
+    background-color: rgba(233, 233, 233, 0.856);
+}
+
+.artisttable {
+    color: #000000;
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.3);
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 6px 5px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    margin: 2% 70px 2% 70px;
+    padding: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px rgba(255, 255, 255, 0.3);
+    background-color: rgb(27, 27, 27);
+    border-radius: 20px;
+    box-shadow: 6px 5px rgba(0, 0, 0, 0.1);
+    overflow: clip;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+.entries_ls {
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+/* social media (fa) classes & id attributes */
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;    
+}
+
+.fa:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+.fa:visited {
+    text-decoration: none;
+}
+
+#fa_inactive {
+    pointer-events: none;  
+    opacity: 0.3;
+}

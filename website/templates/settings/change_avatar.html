@@ -1,0 +1,24 @@
+{% extends "settings/settings_frame.html" %}
+
+{% block change_settings %}
+  <div class="frame_w20pct">
+    <h2>Change Avatar</h2>    
+    <div>
+      {% if artist.filename %}
+        <img class="tiles" src="/static/uploads/avatars/{{ artist.filename }}" alt="Artist-avatar: {{ artist.display_name }}">
+      {% else %}
+        <img class="tiles" src="/static/default.png" alt="Artist-avatar: {{ artist.display_name }}">
+      {% endif %}
+    </div>
+    <br>
+    <form method="post" action="/settings" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="file">Upload image:</label>
+        <input class="form-control-file" type="file" name="file" id="file">   
+      </div>
+      <div class="submit_right">
+        <button type="submit" name="submit" value="avatar" class="btn btn-primary">Submit</button>
+      </div>      
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "manage_entries/overview.html" %}
+
+{% block select %}
+    <div class="frame_w50pct">
+        <h2>{{ action }} Entry</h2> 
+        <div class="dropdown">
+            <form action="/overview" method="post">
+                <select class="form-control" name="{{ action }}" onchange="this.form.submit()">                       
+                    <option disabled selected value>Select entry to {{ action }}</option>
+                    {% for painting in paintings %}
+                        <option value="{{ painting.title }}">{{ painting.title }}</option> 
+                    {% endfor %}
+                </select>  
+            </form>
+        </div>           
+        {% block edit %}{% endblock %}
+        {% block delete %}{% endblock %}
+    </div>    
+    <br>
+{% endblock %}

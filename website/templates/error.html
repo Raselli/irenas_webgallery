@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Error{% endblock %}
+
+{% block main %}
+    <div class="frame_flash">
+        {% if error %}
+            <p>{{ error }}</p>
+        {% else %}
+            <p>Error</p>
+        {% endif %}
+    </div>
+{% endblock %}

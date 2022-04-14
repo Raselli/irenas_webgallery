@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+    <div class="frame_index">
+        <div class="frame_index_col">
+            <br>
+            <div class="frame_login">
+                <h2>Recently Added</h2>
+                <br>
+                <div class="tiles">
+                    <a href="/gallery/newest/{{ entry.title }}"><img src="/static/uploads/thumbnails/{{ entry.filename }}" alt="Painting-Title: {{ entry.title }}">
+                    </a>
+                </div>
+                <br>
+                <a class="font1" href="/gallery/newest/{{ entry.title }}">'{{ entry.title }}'</a>
+                <br>
+                <b>by</b>
+                <br>
+                <a class="font1" href="/artists/{{ artist.display_name }}/newest">{{ artist.display_name }}</a>
+            </div>
+        </div>
+        <div class="frame_index_col">
+            <div class="frame_gallery">
+                <a href="/gallery">
+                    {% for tile in tiles %}
+                        <div class="float_left">
+                            <img class="tile_list" src="/static/uploads/thumbnails/{{ tile.filename }}" alt="Painting-Title: {{ tile.title }}">
+                        </div>
+                    {% endfor %}
+                </a>
+            </div>
+        </div>
+        <div class="frame_index_col">
+            <br>
+            <div class="frame_login">
+                {% include "/authentication/sign_up_form.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

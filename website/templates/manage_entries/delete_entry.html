@@ -1,0 +1,43 @@
+{% extends "manage_entries/select_entry.html" %}
+
+{% block delete %}
+    <div>  
+        <img class="img_mod" src="/static/uploads/{{ entry.filename }}" alt="{{ entry.alt }}">
+        <br>                
+        <p class="center"><b>Filename: </b>{{ entry.filename }}</p>      
+        <form  method="post" action="/delete" enctype="multipart/form-data">
+            <div class="form-group">  
+                <label for="title">Title:</label>            
+                <input class="form-control" type="text" name="title" id="title" autocomplete="off" value="{{ entry.title }}" readonly>
+            </div>
+            <br>
+            <div class="form-group">  
+                <label for="alt">Description of the Image (ALT):</label>
+                <input class="form-control" type="text" name="alt" id="alt" autocomplete="off" value="{{ entry.alt }}" readonly>
+            </div>
+            <div class="form-group">  
+                <div class="row">
+                    <div class="col">
+                        <label for="width">Width (mm):</label>            
+                        <input class="form-control" type="number" min="0" name="width" id="width" autocomplete="off" value="{{ entry.width }}" readonly>
+                    </div> 
+                    <div class="col">                    
+                        <label for="height">Height (mm):</label>            
+                        <input class="form-control" type="number" min="0" name="height" id="height" autocomplete="off" value="{{ entry.height }}" readonly>
+                    </div>             
+                    <div class="col">
+                        <label for="price">Price (CHF):</label>           
+                        <input class="form-control" type="number" min="0" name="price" id="price" autocomplete="off" value="{{ entry.price }}" readonly>
+                    </div>
+                </div>
+            </div>              
+            <div class="form-group">  
+                <label for="note">Notes:</label>            
+                <textarea class="form-control" name="note" id="note" autocomplete="off" readonly>{{ entry.note }}</textarea>               
+            </div>
+            <div class="submit_right">                
+                <button class="btn btn-danger mb-2" type="submit" name="delete_submit" value="{{ entry.id }}">Delete</button>
+            </div>                     
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block main %}
+    <h2 class="center">- Gallery -</h2>    
+    <div class="frame_opaque">
+        <div>
+            {% for fltr in fltrs %}
+                {% if current_filter == fltr %}
+                    <a class="fltr_active" href="/gallery/{{ fltr }}">{{ fltr }}</a>
+                {% else %}
+                    <a class="fltr" href="/gallery/{{ fltr }}">{{ fltr }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <br>
+        <div> 
+            {% for entry in entries %}
+                <a class="tiles" href="{{ current_filter }}/{{ entry.title }}">
+                    <img id="{{ entry.title }}" class="tile" src="/static/uploads/thumbnails/{{ entry.filename }}" alt="Painting-Title: {{ entry.title }}">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

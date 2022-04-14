@@ -1,0 +1,17 @@
+{% extends "settings/settings_frame.html" %}
+
+{% block change_settings %}
+  <div class="frame_w50pct">
+    <h2>Change Artist-Description</h2>    
+    <form method="post" action="/settings" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="note">Artist description:</label>            
+        <textarea class="form-control" name="note" id="note" autocomplete="off" placeholder="Write something description yourself or your art">{{ artist.note }}</textarea>  
+      </div>
+      <br>
+      <div class="submit_right">
+        <button type="submit" name="submit" value="description" class="btn btn-primary">Submit</button>
+      </div>      
+    </form>
+  </div>
+{% endblock %}

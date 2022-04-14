@@ -1,0 +1,22 @@
+{% extends "settings/settings_frame.html" %}
+
+{% block change_settings %}
+  <div class="frame_w50pct">
+    <h2>Change Display Name</h2>    
+    <form method="post" action="/settings" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Display Name:</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Display Name" value="{{ artist.display_name }}"/>
+      </div>
+      <br>
+      <div class="center">
+        <p>The display name will be visible for everybody.</p>
+        <p>All your uploads on this page will have your display name as signature.</p>
+        <p><b>Warning:</b> It is recommended not to use your username as display name!</p>
+      </div>
+      <div class="submit_right">
+        <button type="submit" name="submit" value="name" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "manage_entries/overview.html" %}
+
+{% block select %}
+    <table class="entries_ls">
+        <tr>
+            <td colspan="10">
+                <br>
+                <h2>My Entries</h2>
+            </td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Height(mm)</th>
+            <th>Width(mm)</th>
+            <th>Price(CHF)</th>
+            <th>Sold</th>
+            <th colspan="2">Description</th>
+            <th>Entry added</th>            
+            <th></th>                                                                                 
+        </tr>
+        {% for painting in paintings %}
+            <tr>
+                <td><img class="tile_list" src="/static/uploads/thumbnails/{{ painting.filename }}" alt="Painting-Title: {{ painting.title }}"/></td>
+                <td>{{ painting.title }}</td>         
+                <td>{{ painting.height }}</td>
+                <td>{{ painting.width }}</td>
+                <td>{{ painting.price}}</td>
+                <td>
+                    {% if painting.sold == True %}
+                        Sold
+                    {% endif %}
+                </td>
+                <td colspan="2">{{ painting.note }}</td>
+                <td>{{ painting.timestamp }}</td>                                                                
+                <td>
+                    <form action="/overview" method="post">
+                        <button class="btn btn-primary" type="submit" name="edit" value="{{ painting.title }}">Edit</button>
+                        <button class="btn btn-danger" type="submit" name="delete" value="{{ painting.title }}">Delete</button>
+                    </form>
+                </td> 
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "settings/settings_frame.html" %}
+
+{% block change_settings %}
+  <div class="frame_w20pct">
+    <h2>Change Socialmedia</h2>    
+    <form method="post" action="/settings" enctype="multipart/form-data">
+      {% for socialmedia in socialmedias %}
+      <div class="form-group">
+        <label for="{{ socialmedia }}">{{ socialmedia[0]|upper}}{{socialmedia[1:] }}:</label>
+        <input type="text" class="form-control" name="{{ socialmedia }}" id="{{ socialmedia }}" placeholder="Enter {{ socialmedia }}-profile link" value="{{ artist[socialmedia] }}"/>
+      </div>
+      {% endfor %}
+      <p>Example: https://twitter.com/cs50</p>  
+      <div class="submit_right">
+        <button type="submit" name="submit" value="socialmedia" class="btn btn-primary">Submit</button>
+      </div>      
+    </form>   
+  </div>
+{% endblock %}

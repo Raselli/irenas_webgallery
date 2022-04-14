@@ -1,0 +1,11 @@
+{% extends "manage_entries/overview.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block settings_bar %}
+  <form action="/settings" method="post" enctype="multipart/form-data">
+    {% for data_button in data_buttons %}
+      <button type="submit" class="btn btn-secondary" name="change" value="{{ data_button[0] }}">{{ data_button[1] }}</button>
+    {% endfor %}
+  </form>
+{% endblock %}

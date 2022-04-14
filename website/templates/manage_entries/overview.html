@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MyEntries
+{% endblock %}
+
+{% block main %}
+    <div class="frame_invis">
+        <form class="float_left" action="/overview" method="post">
+            <button type="submit" class="btn btn-primary" name="overview" value="list">My Entries</button>        
+            <button type="submit" class="btn btn-primary" name="overview" value="new">New Entry</button>
+            <button type="submit" class="btn btn-primary" name="overview" value="edit">Edit Entry</button>
+            <button type="submit" class="btn btn-primary" name="overview" value="delete">Delete Entry</button>
+        </form>
+        <div class="float_right">
+            <button onclick="document.location='/settings'" class="btn btn-primary">Settings</button>
+        </div>
+        <div class="float_left">
+            {% block settings_bar %}{% endblock %} 
+        </div>               
+    </div>
+    <br>    
+    <div class="frame_invis">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="frame_flash">                
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block change_settings %}{% endblock %}
+        {% block select %}{% endblock %}
+        {% block new %}{% endblock %}
+        <br>        
+    </div>
+{% endblock %}

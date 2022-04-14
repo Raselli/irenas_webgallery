@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Gallery: {{ enlargen.title }}{% endblock %}
+
+{% block main %}
+    <div class="frame_opaque">
+        <div class="center">
+            <div>
+                <img class="img_large" src="/static/uploads/{{ enlargen.filename }}" alt="{{ enlargen.alt }}">
+                <input type="button" class="close" onclick="history.back()" value="x">             
+            </div>
+            <br>
+            <h2 class="font0">'{{ enlargen.title }}'</h2>
+            <p><b>by</b></p>
+            <a class="font1" href="/artists/{{ display_name }}/{{ filter }}">{{ display_name }}</a>
+            {% if enlargen.height or enlargen.width or enlargen.price or enlargen.note %}
+                <hr>
+            {% endif %}
+            <p>
+                {% if enlargen.height and enlargen.width %}
+                    {{ enlargen.height }} mm x {{ enlargen.width }} mm 
+                {% endif %}     
+                {% if enlargen.height and enlargen.width and enlargen.price %}
+                    &nbsp;|&nbsp;
+                {% endif %}
+                {% if enlargen.sold == True %}
+                    SOLD
+                {% else %}
+                    {% if enlargen.price %}  
+                        Price: {{ enlargen.price }}.-
+                    {% endif %}
+                {% endif %}
+            </p>
+            {% if enlargen.note %}
+                <p>{{ enlargen.note }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

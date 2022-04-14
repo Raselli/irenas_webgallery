@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Artists{% endblock %}
+
+{% block main %}
+    <h2 class="center">- Artists -</h2>
+    {% for artist in artists %}
+        <table>
+            <tr>
+                <td>
+                    {% if artist.filename %}
+                        <img class="tile_list" src="/static/uploads/avatars/{{ artist.filename }}" alt="Artist avatar"/>
+                    {% else %}
+                        <img class="tile_list" src="/static/default.png" alt="Artist avatar"/>
+                    {% endif %}
+                </td>
+                <td>
+                    <table class="artisttable">
+                        <tr>
+                            <td class="artistname" colspan="2"><h3>{{ artist.display_name }}</h3></td>
+                        </tr>
+                        <tr>                          
+                            <td class="artistinfo">
+                                {% if artist.email %}
+                                    <a class="fa fa-envelope" href="mailto:{{ artist.email }}" target="_blank"></a>
+                                {% else %}
+                                    <a class="fa fa-envelope" id="fa_inactive"></a>
+                                {% endif %}                              
+                                {% for socialmedia in socialmedias%}
+                                    {% if artist[socialmedia] %}
+                                        <a href="{{ artist[socialmedia] }}" target="_blank" class="fa fa-{{ socialmedia }}"></a> 
+                                    {% else %}
+                                        <a href="" class="fa fa-{{ socialmedia }}" id="fa_inactive"></a> 
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {% for key, value in artists.items() %}
+                                    {% if key == artist and value > 0 %}
+                                        <a class="fltr" href="/artists/{{ artist.display_name }}/newest">
+                                            {% if key == artist and value == 1 %}
+                                                {{value}} Entry
+                                            {% else %}
+                                                {{value}} Entries
+                                            {% endif %}
+                                        </a>
+                                    {% elif key == artist and value == 0  %}
+                                        <a class="fltr" href="/artists/{{ artist.display_name }}/newest">0 Entries</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>   
+                    </table>
+                </td>
+            </tr>
+        </table>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "settings/settings_frame.html" %}
+
+{% block change_settings %}
+  <div class="frame_w20pct">
+    <h2>Change E-Mail</h2>    
+    <form method="post" action="/settings" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Enter email" value="{{ artist.email }}"/>
+        <br>
+        <b>Notice:</b>
+        <p>This email-adress is for visitors to contact you to buy your art.</p>
+      </div>
+      <div class="submit_right">
+        <button type="submit" name="submit" value="email" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

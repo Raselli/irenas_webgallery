@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block main %}
+    <div class="frame_flash">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="frame_login">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+            </div>            
+            <a class="float_left" href="/sign_up">Sign Up</a>
+            <div class="submit_right">
+                <button class="btn btn-primary mb-2" type="submit">Login</button> 
+            </div>
+        </form>        
+    </div>
+{% endblock %}
